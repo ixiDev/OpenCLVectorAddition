@@ -7,7 +7,7 @@ Tutorial video https://youtu.be/B-YApTvoxa0
 
 ```shell
    cd $HOME && git clone https://github.com/ixiDev/OpenCLVectorAddition.git
-   cd ~OpenCLVectorAddition
+   cd ~/OpenCLVectorAddition
    cmake -S . -B build
    cmake --build build --target all
 ```
