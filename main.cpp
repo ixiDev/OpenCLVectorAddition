@@ -168,11 +168,11 @@ double vect_add_opencl(int DIM, const int *a, const int *b, int *c) {
     );
 
     // read results
-    Event readB;
+    Event readC;
     queue.enqueueReadBuffer(
             cBuffer, CL_TRUE, 0,
             sizeof(int) * DIM, c,
-            nullptr, &readB
+            nullptr, &readC
     );
 
     queue.finish();
@@ -180,11 +180,11 @@ double vect_add_opencl(int DIM, const int *a, const int *b, int *c) {
     auto totalTime = get_event_time(copyA) +
                      get_event_time(copyB) +
                      get_event_time(executeKernel) +
-                     get_event_time(readB);
+                     get_event_time(readC);
 
     EVENT_TIME(copyA);
     EVENT_TIME(copyB);
-    EVENT_TIME(readB);
+    EVENT_TIME(readC);
     EVENT_TIME(executeKernel);
 
     return totalTime;
